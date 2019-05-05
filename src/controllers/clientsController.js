@@ -29,6 +29,26 @@ class ClientsController {
 
 		return { message: 'success' };
 	}
+
+	// POST - update a client
+	static async updateOne(req) {
+		const { clientId } = req.params;
+		let client;
+
+		await ClientModel.getOne(clientId).then((result) => {
+			client = result;
+		});
+
+		if (req.body.firstname) {
+			client.firstname = req.body.firstname;
+		}
+
+		if (req.body.surname) {
+			client.surname = req.body.surname;
+		}
+
+		return ClientModel.updateOne(client);
+	}
 }
 
 

@@ -70,6 +70,24 @@
           }
         }
       }
+    },
+    "/api/v1/clients/update/{id}": {
+      "POST": {
+        "summary": "ClientModel",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Client UUID v4",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns ok and updated client's id"
+          }
+        }
+      }
     }
   },
   "definitions": {
