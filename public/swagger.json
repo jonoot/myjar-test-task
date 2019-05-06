@@ -84,7 +84,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Returns ok and updated client's id"
+            "description": "Returns success message"
           }
         }
       }

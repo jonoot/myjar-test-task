@@ -47,7 +47,9 @@ class ClientsController {
 			client.surname = req.body.surname;
 		}
 
-		return ClientModel.updateOne(client);
+		await ClientModel.updateOne(client);
+
+		return { message: 'Data updated successfully' };
 	}
 }
 
