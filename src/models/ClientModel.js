@@ -22,9 +22,19 @@ class ClientModel {
 		return db.none(queries.clients.deleteOne, { clientId });
 	}
 
-	// Update client
-	static async updateOne(clientData) {
-		return db.none(queries.clients.updateOne, clientData);
+	// Update client's first and last name
+	static async updateFirstAndLast(clientData) {
+		return db.none(queries.clients.updateFirstAndLast, clientData);
+	}
+
+	// Update client's first name
+	static async updateFirst(clientData) {
+		return db.none(queries.clients.updateFirst, clientData);
+	}
+
+	// Update client's last name
+	static async updateLast(clientData) {
+		return db.none(queries.clients.updateLast, clientData);
 	}
 }
 

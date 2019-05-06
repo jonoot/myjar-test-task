@@ -31,25 +31,38 @@ class ClientsController {
 	}
 
 	// POST - update a client
-	static async updateOne(req) {
+	static async updateClient(req) {
 		const { clientId } = req.params;
-		let client;
+		const newFirstName = req.body.firstname;
+		const newSurname = req.body.surname;
 
-		await ClientModel.getOne(clientId).then((result) => {
-			client = result;
-		});
-
-		if (req.body.firstname) {
-			client.firstname = req.body.firstname;
+		if (newFirstName && newSurname) {
+			await ClientModel.updateFirstAndLast(
+				{
+					id: clientId,
+					firstname: req.body.firstname,
+					surname: req.body.surname,
+				},
+			);
+		} else if (newFirstName) {
+			await ClientModel.updateFirst(
+				{
+					id: clientId,
+					firstname: newFirstName,
+				},
+			);
+		} else if (newSurname) {
+			await ClientModel.updateLast(
+				{
+					id: clientId,
+					surname: newSurname,
+				},
+			);
+		} else {
+			return { message: 'no changes' };
 		}
 
-		if (req.body.surname) {
-			client.surname = req.body.surname;
-		}
-
-		await ClientModel.updateOne(client);
-
-		return { message: 'Data updated successfully' };
+		return { message: 'data updated successfully' };
 	}
 }
 

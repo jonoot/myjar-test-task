@@ -77,4 +77,26 @@ describe('clientsController', () => {
 			.that.is.an('string')
 			.that.equals('success');
 	});
+
+	it('#updateFirstAndLast should return success message', async () => {
+		const clientModel = td.replace('../../../src/models/ClientModel');
+		td.when(clientModel.updateFirstAndLast('some-client-id')).thenResolve();
+
+		const ClientsController = require('../../../src/controllers/ClientsController');
+		const updateOneResult = await ClientsController.updateClient({
+			params: {
+				clientId: 'some-client-id',
+			},
+			body: {
+				firstname: 'first-name',
+			},
+		});
+
+		expect(updateOneResult)
+			.to.be.an('object')
+			.and.has.property('message')
+			.that.is.an('string')
+			.that.equals('data updated successfully');
+	});
+
 });
