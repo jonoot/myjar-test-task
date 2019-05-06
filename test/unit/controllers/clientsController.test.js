@@ -78,7 +78,7 @@ describe('clientsController', () => {
 			.that.equals('success');
 	});
 
-	it('#updateFirstAndLast should return success message', async () => {
+	it('#updateClient with 2 parameters should return success message', async () => {
 		const clientModel = td.replace('../../../src/models/ClientModel');
 		td.when(clientModel.updateFirstAndLast('some-client-id')).thenResolve();
 
@@ -89,6 +89,49 @@ describe('clientsController', () => {
 			},
 			body: {
 				firstname: 'first-name',
+				surname: 'last-name',
+			},
+		});
+
+		expect(updateOneResult)
+			.to.be.an('object')
+			.and.has.property('message')
+			.that.is.an('string')
+			.that.equals('data updated successfully');
+	});
+
+	it('#updateClient with only first name should return success message', async () => {
+		const clientModel = td.replace('../../../src/models/ClientModel');
+		td.when(clientModel.updateFirst('some-client-id')).thenResolve();
+
+		const ClientsController = require('../../../src/controllers/ClientsController');
+		const updateOneResult = await ClientsController.updateClient({
+			params: {
+				clientId: 'some-client-id',
+			},
+			body: {
+				firstname: 'first-name',
+			},
+		});
+
+		expect(updateOneResult)
+			.to.be.an('object')
+			.and.has.property('message')
+			.that.is.an('string')
+			.that.equals('data updated successfully');
+	});
+
+	it('#updateClient with only last name should return success message', async () => {
+		const clientModel = td.replace('../../../src/models/ClientModel');
+		td.when(clientModel.updateLast('some-client-id')).thenResolve();
+
+		const ClientsController = require('../../../src/controllers/ClientsController');
+		const updateOneResult = await ClientsController.updateClient({
+			params: {
+				clientId: 'some-client-id',
+			},
+			body: {
+				surname: 'last-name',
 			},
 		});
 
