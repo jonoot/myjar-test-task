@@ -27,13 +27,13 @@ module.exports = {
 		indent: ['error', 'tab', { SwitchCase: 1 }],
 		// If you want to put a blank line at the beginning or end of a block, knock yourself out
 		'padded-blocks': ['off'],
-		// We set indent to require tabse
+		// We set indent to require tabs
 		'no-tabs': ['off'],
 		// Seriously, who cares if there's a blank line at the end of the file or not?
 		'eol-last': ['off'],
 		// Sometimes having a long single line makes sense, this also seems buggy and inconsistent, so we ignore it
 		'max-len': ['off'],
-		// Webstorm repeatedly tries to add it for us. it's easier not to fight it, even if it's not required.
+		// Webstorm repeatedly tries to add it for us. It's easier not to fight it, even if it's not required.
 		strict: ['off'],
 		// When setting the property of an object, you can specify the name even if it's unnecessary (ie: { foo: foo })
 		'object-shorthand': ['off'],
@@ -45,7 +45,7 @@ module.exports = {
 		'brace-style': ['error', '1tbs'],
 		// Warn about overly complex code that you may want to refactor
 		complexity: ['warn', 15],
-		// It's possible that implicit coercion is not what you intended. webstorm warns about it, so should we
+		// It's possible that implicit coercion is not what you intended. Webstorm warns about it, so should we
 		'no-implicit-coercion': ['warn'],
 		// If you're using 'this' somewhere that isn't a class you're probably doing something wrong
 		'no-invalid-this': ['error'],

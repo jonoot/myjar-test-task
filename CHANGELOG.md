@@ -9,3 +9,6 @@ Simple changelog to keep up with my main edits in code.
 * Added method to controller for updating client. Method works with both arguments (firstname, surname), one argument or zero arguments given.
 * Updated ClientModel.js, routes.js, queries.js and swagger.json files according to new method.
 * Method is accessable from route: '/api/v1/clients/update/:clientId'.
+
+-- Eslint errors
+* Fixed eslint errors in test.js files.
