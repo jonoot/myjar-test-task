@@ -84,7 +84,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Returns success message"
+            "description": "Returns success message and client data is updated if client exists and data is given"
           }
         }
       }
@@ -96,12 +96,15 @@
         "firstname": {
 					"type": "string",
 					"minLength": 1,
-					"maxLength": 64
+					"maxLength": 64,
+                    "pattern": "^[a-zA-Z]+$",
+                    "error": "xxxxxx"
 				},
 				"surname": {
 					"type": "string",
 					"minLength": 1,
-					"maxLength": 64
+					"maxLength": 64,
+                    "pattern": "^[a-zA-Z]+$"
 				},
 				"phoneNumber": {
 					"type": "string",
