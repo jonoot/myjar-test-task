@@ -23,3 +23,4 @@ Tests
     * After running this test, I discovered that the update method is not correct, and edited update method.
 * Wrote tests for one parameter updates.
 * Wrote few integration tests.
+* Wrote test for every method.
