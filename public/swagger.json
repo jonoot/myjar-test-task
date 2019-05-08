@@ -94,22 +94,19 @@
     "ClientModel": {
       "properties": {
         "firstname": {
-					"type": "string",
-					"minLength": 1,
-					"maxLength": 64,
-                    "pattern": "^[a-zA-Z]+$",
-                    "error": "xxxxxx"
-				},
-				"surname": {
-					"type": "string",
-					"minLength": 1,
-					"maxLength": 64,
-                    "pattern": "^[a-zA-Z]+$"
-				},
-				"phoneNumber": {
-					"type": "string",
-					"pattern": "^\\+4407([0-9]{9,14})"
-				}
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 64
+        },
+        "surname": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+        },
+        "phoneNumber": {
+            "type": "string",
+            "pattern": "^\\+4407([0-9]{9,14})"
+        }
       },
       "required": ["firstname", "surname", "phoneNumber"]
     }
